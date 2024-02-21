@@ -1,5 +1,5 @@
-import { lengthOfLongestSubstring } from "./problems";
+import { lengthOfLongestSubstring } from './problems';
 
-console.log(lengthOfLongestSubstring("abcabcbd"));
-console.log(lengthOfLongestSubstring("bbbbb"));
-console.log(lengthOfLongestSubstring("pwwkew"));
+console.log(lengthOfLongestSubstring('abcabcbd'));
+console.log(lengthOfLongestSubstring('bbbbb'));
+console.log(lengthOfLongestSubstring('pwwkew'));

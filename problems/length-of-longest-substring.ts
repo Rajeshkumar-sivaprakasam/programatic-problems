@@ -1,10 +1,10 @@
 export function lengthOfLongestSubstring(s: string): number {
-  //   return splitStrMethoed(s)
-  return substringMethoed(s);
+    //   return splitStrMethoed(s)
+    return substringMethoed(s);
 }
 
 const splitStrMethoed = (s: string): number => {
-  /*
+    /*
   Algorithm
 
   1. split string into array.
@@ -15,47 +15,47 @@ const splitStrMethoed = (s: string): number => {
 
    */
 
-  //  1. split string into array.
-  const splitedString = s.split("");
-  //   console.log(splitedString);
+    //  1. split string into array.
+    const splitedString = s.split('');
+    //   console.log(splitedString);
 
-  const s1: string[] = [];
-  const s2: string[] = [];
-  // 2. itrate those things again and again until length reach
-  for (let i = 0; i < splitedString.length; i++) {
-    if (s1.includes(splitedString[i])) {
-      if (s2.includes(splitedString[i])) {
-        s2.length = 0;
-      }
-      s2.push(splitedString[i]);
-    } else {
-      s1.push(splitedString[i]);
+    const s1: string[] = [];
+    const s2: string[] = [];
+    // 2. itrate those things again and again until length reach
+    for (let i = 0; i < splitedString.length; i++) {
+        if (s1.includes(splitedString[i])) {
+            if (s2.includes(splitedString[i])) {
+                s2.length = 0;
+            }
+            s2.push(splitedString[i]);
+        } else {
+            s1.push(splitedString[i]);
+        }
     }
-  }
-  // not worked in all case
-  return s1.length;
+    // not worked in all case
+    return s1.length;
 };
 
 const substringMethoed = (s: string): number => {
-  const isUnique = (s: string): boolean => {
-    const arr: string[] = [];
-    for (let i = 0; i < s.length; i++) {
-      if (arr.includes(s[i])) {
-        return false;
-      }
-      arr.push(s[i]);
-    }
-    return true;
-  };
+    const isUnique = (s: string): boolean => {
+        const arr: string[] = [];
+        for (let i = 0; i < s.length; i++) {
+            if (arr.includes(s[i])) {
+                return false;
+            }
+            arr.push(s[i]);
+        }
+        return true;
+    };
 
-  let max = 0;
-  for (let begin = 0; begin < s.length; begin++) {
-    for (let end = begin; end < s.length; end++) {
-      const substr = s.substring(begin, end);
-      if (isUnique(substr)) {
-        max = Math.max(max, substr.length);
-      }
+    let max = 0;
+    for (let begin = 0; begin < s.length; begin++) {
+        for (let end = begin; end < s.length; end++) {
+            const substr = s.substring(begin, end);
+            if (isUnique(substr)) {
+                max = Math.max(max, substr.length);
+            }
+        }
     }
-  }
-  return max;
+    return max;
 };
